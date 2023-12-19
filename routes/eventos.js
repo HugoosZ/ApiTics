@@ -43,12 +43,18 @@ router.post("/creareleccion", async (req, res) => {
 });
 
 router.post("/crearelecciones", async (req, res) => {
-    try{
-        const newVote= await Votacion.create(req.body);
-        res.json({
-            success:true
+    try {
+        const { titulo, candidatos } = req.body;
+        const candidatosArray = JSON.parse(candidatos);
+        const newVote = await Votacion.create({
+            titulo,
+            candidato: candidatosArray,
         });
-    }catch (err){
+
+        res.json({
+            success: true,
+        });
+    } catch (err) {
         console.log("error", err);
         res.json({ success: false });
     }
