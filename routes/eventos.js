@@ -62,6 +62,7 @@ router.post("/crearelecciones", async (req, res) => {
 
 
 
+
 router.post("/:id/votar", async (req, res) => {
     try{
         const vote= await Votacion.findById(req.params.id);
