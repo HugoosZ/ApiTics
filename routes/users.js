@@ -1,6 +1,6 @@
 import express from "express";
 import User from "../models/user.js";
-import Votacion from "../models/votaciones.js";
+
 import jwt from "jsonwebtoken";
 import jwtAuthenticated from "../helpers/jwtAuthenticated.js";
 const router = express.Router();

@@ -2,17 +2,22 @@ import express from "express";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 
+
+
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
-const mongoURI = 'mongodb+srv://lauramontaner:FtKt7QCzUHAoEqxc@cluster0.jwwychd.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(mongoURI);
-const db = mongoose.connection;
-db.on('error', (err) => {
-  console.error('Error connecting to MongoDB:', err);
+
+const mongoURI = 'mongodb+srv://wet:aaa@cluster0.rd9ekr0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Conectado a la base de datos MongoDB');
+}).catch(err => {
+  console.error('Error al conectar a MongoDB:', err);
 });
-db.once('open', () => {
-  console.log('Connected to Mongo Database');
-});
+
 app.use(cookieParser());
+
 export { app };
