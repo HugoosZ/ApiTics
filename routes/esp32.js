@@ -30,4 +30,15 @@ router.get("/latest", async (req, res) => {
       res.status(500).send({ error: "Error retrieving the latest decibel level" });
     }
   });
+  router.get('/data', async (req, res) => {
+    try {
+      const data = await getTelemetryData();
+      res.json(data);
+    } catch (error) {
+      res.status(500).json({ message: 'Error fetching telemetry data' });
+    }
+  });
+
+
+
 export default router;

@@ -18,18 +18,13 @@ app.set('views', join(__dirname, 'views')); // Establece la carpeta de vistas
 app.use(cors());
 app.use("", mainRouter);
 app.use("/user", UserRouter);
-app.use("/", Esp32Router);
+app.use("/esp32", Esp32Router); // Asegúrate de usar esta ruta
 
 // Ruta para renderizar la vista 'home.ejs'
 app.get("/", (req, res) => {
     res.render("home", {
         style: 'styles.css',
     });
-});
-
-// Ruta de ejemplo
-app.get("/hi", (req, res) => {
-    res.send("Hello World!");
 });
 
 // Inicia el servidor

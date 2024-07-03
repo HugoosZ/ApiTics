@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const THINGSBOARD_BASE_URL = 'https://YOUR_THINGSBOARD_INSTANCE_URL';
+const THINGSBOARD_BASE_URL = 'https://thingsboard.cloud';
 const DEVICE_ID = 'a9672cd0-38d7-11ef-8286-cf8f93908d20';
 const ACCESS_TOKEN = 'ApUiFKU4QdwtheVCZdpo';
 
