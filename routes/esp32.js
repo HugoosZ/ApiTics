@@ -18,5 +18,16 @@ router.post("/send-decibel", async (req, res) => {
     res.status(500).send({ error: "Error saving decibel level" });
   }
 });
-
+router.get("/latest", async (req, res) => {
+    try {
+      const latestDb = await Db.findOne().sort({ _id: -1 }).exec();
+      if (latestDb) {
+        res.status(200).send({ decibel: latestDb.DB });
+      } else {
+        res.status(404).send({ error: "No records found" });
+      }
+    } catch (error) {
+      res.status(500).send({ error: "Error retrieving the latest decibel level" });
+    }
+  });
 export default router;
