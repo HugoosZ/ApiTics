@@ -7,11 +7,12 @@ import cors from "cors";
 const port = 2000;
 
 app.use(cors());
-app.use("",mainRouter);
-app.use("/user",UserRouter);
+app.use("", mainRouter);
+app.use("/user", UserRouter);
 app.use("/", Esp32Router);
+
 app.get("/", (req, res) => {
-    res.render("home",{
+    res.render("home", {
         style: 'styles.css',
     });
 });
@@ -19,7 +20,7 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
+
 app.get("/hi", (req, res) => {
     res.send("Hello World!");
 });
-    
